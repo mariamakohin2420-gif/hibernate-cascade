@@ -4,7 +4,6 @@ import core.basesyntax.dao.UserDao;
 import core.basesyntax.exception.DataProcessingException;
 import core.basesyntax.model.User;
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -30,9 +29,10 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
             }
             throw new DataProcessingException("Can't insert user: " + entity, e);
         } finally {
-            if (session != null)
+            if (session != null) {
                 session.close();
 
+            }
         }
     }
 

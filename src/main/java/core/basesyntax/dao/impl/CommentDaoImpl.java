@@ -4,7 +4,6 @@ import core.basesyntax.dao.CommentDao;
 import core.basesyntax.exception.DataProcessingException;
 import core.basesyntax.model.Comment;
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -47,7 +46,7 @@ public class CommentDaoImpl extends AbstractDao implements CommentDao {
 
     @Override
     public List<Comment> getAll() {
-        try (Session session =  factory.openSession()) {
+        try (Session session = factory.openSession()) {
             return session.createQuery("FROM Comment", Comment.class).getResultList();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get all comments ", e);
