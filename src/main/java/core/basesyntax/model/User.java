@@ -6,8 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
@@ -18,7 +18,8 @@ public class User {
     private Long id;
     private String username;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER )
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,
+            CascadeType.MERGE}, fetch = FetchType.EAGER)
     private List<Comment> comments;
 
     public Long getId() {
