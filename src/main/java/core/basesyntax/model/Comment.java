@@ -20,14 +20,7 @@ public class Comment {
     private Long id;
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "comment_smiles",
-            joinColumns = @JoinColumn(name = "comment_id"),
-            inverseJoinColumns = @JoinColumn(name = "smile_id"))
+    @ManyToMany
     private List<Smile> smiles;
 
     public Long getId() {
@@ -44,14 +37,6 @@ public class Comment {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public List<Smile> getSmiles() {

@@ -16,7 +16,7 @@ public class Message {
     private Long id;
     private String content;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     private MessageDetails messageDetails;
 
     public Message() {

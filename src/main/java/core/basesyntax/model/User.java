@@ -18,8 +18,7 @@ public class User {
     private Long id;
     private String username;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,
-            CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Comment> comments;
 
     public Long getId() {
